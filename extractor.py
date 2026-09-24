@@ -24,8 +24,8 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup
 
-API_URL = "https://api.anthropic.com/v1/messages"
-MODEL = os.environ.get("CLINICSCOUT_MODEL", "claude-haiku-4-5-20251001")
+API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+MODEL = os.environ.get("CLINICSCOUT_MODEL", "gemini-2.5-flash-lite")
 MAX_PAGE_CHARS = 18000
 
 # Long terms are safe as substrings. The abbreviations are NOT: "tha" is inside
@@ -89,6 +89,22 @@ Return ONLY a JSON object, no preamble and no markdown fences, shaped exactly li
   "volume_signal": {"value": "<figure as printed>|Unknown", "evidence": "..."}
 }
 Use "" for evidence when the value is Unknown."""
+
+FIELD_SCHEMA = {
+    "type": "OBJECT",
+    "properties": {
+        field_name: {
+            "type": "OBJECT",
+            "properties": {
+                "value": {"type": "STRING"},
+                "evidence": {"type": "STRING"},
+            },
+            "required": ["value", "evidence"],
+        }
+        for field_name in FIELDS
+    },
+    "required": FIELDS,
+}
 
 
 @dataclass
@@ -247,23 +263,31 @@ def keyword_baseline(page: str) -> dict:
 
 def call_model(page: str, api_key: str, model: str = MODEL, timeout: int = 60) -> dict:
     body = {
-        "model": model,
-        "max_tokens": 1200,
-        "system": SYSTEM_PROMPT,
-        "messages": [{
+        "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+        "contents": [{
             "role": "user",
-            "content": f"PAGE TEXT:\n\n{page[:MAX_PAGE_CHARS]}\n\nReturn the JSON object now."
+            "parts": [{
+                "text": f"PAGE TEXT:\n\n{page[:MAX_PAGE_CHARS]}\n\nReturn the JSON object now."
+            }],
         }],
+        "generationConfig": {
+            "temperature": 0,
+            "maxOutputTokens": 1200,
+            "responseMimeType": "application/json",
+            "responseSchema": FIELD_SCHEMA,
+        },
     }
     r = requests.post(
-        API_URL,
-        headers={"x-api-key": api_key,
-                 "anthropic-version": "2023-06-01",
-                 "content-type": "application/json"},
+        API_URL.format(model=model),
+        headers={"x-goog-api-key": api_key, "content-type": "application/json"},
         json=body, timeout=timeout,
     )
     r.raise_for_status()
-    text = "".join(blk.get("text", "") for blk in r.json().get("content", []))
+    candidates = r.json().get("candidates", [])
+    if not candidates:
+        raise ValueError("model returned no candidate")
+    parts = candidates[0].get("content", {}).get("parts", [])
+    text = "".join(part.get("text", "") for part in parts)
     text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
     return json.loads(text)
 

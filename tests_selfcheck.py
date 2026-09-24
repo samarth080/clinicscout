@@ -17,7 +17,7 @@ home exercise programme. Call 0172-4692222 for appointments.</p>
 <script>var a=1;</script></body></html>
 """
 
-FAKE_MODEL_REPLY = {"content": [{"type": "text", "text": "```json\n" + json.dumps({
+FAKE_MODEL_TEXT = "```json\n" + json.dumps({
     "joint_replacement_offered": {"value": "Yes",
         "evidence": "Our team performs total knee replacement and total hip replacement"},
     "knee_replacement_mentioned": {"value": "Yes",
@@ -33,7 +33,10 @@ FAKE_MODEL_REPLY = {"content": [{"type": "text", "text": "```json\n" + json.dump
     # a real quote, but it does not support a volume claim
     "volume_signal": {"value": "500 surgeries per year",
         "evidence": "Department of Orthopaedics & Joint Replacement"},
-}) + "\n```"}]}
+}) + "\n```"
+FAKE_MODEL_REPLY = {
+    "candidates": [{"content": {"parts": [{"text": FAKE_MODEL_TEXT}]}}]
+}
 
 class FakeResp:
     status_code = 200

@@ -68,11 +68,11 @@ not depend on the model.
 
 ```bash
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=your_key_here  # never committed; see below
+export GEMINI_API_KEY=your_key_here  # never committed; see below
 streamlit run app.py
 ```
 
-**Deploy (Vercel):** import the repository, then add `ANTHROPIC_API_KEY` under *Project
+**Deploy (Vercel):** import the repository, then add `GEMINI_API_KEY` under *Project
 Settings → Environment Variables*. `public/` is the framework-free browser interface and
 `api/scout.py` is the only serverless function; it imports `extractor.py`, so the web app
 and evaluation use the same extraction and verification code. The key is read only by
@@ -85,8 +85,11 @@ best-effort limit of 20 requests per IP per hour. The counter is in memory and t
 per warm Vercel instance; a globally strict counter would require shared storage, which
 is deliberately out of scope for this small no-database tool.
 
-**Model.** Defaults to Claude Haiku (`CLINICSCOUT_MODEL` to override). Extraction with a
-strict schema is a small-model job; paying for a large one here is waste.
+**Model.** Defaults to Gemini 2.5 Flash-Lite (`CLINICSCOUT_MODEL` to override), which has
+a documented free API tier and structured JSON output. Free-tier requests may be used
+to improve Google's products, so the existing public-institutional-pages-only rule is
+important: no patient data is accepted or needed. Extraction with a strict schema is a
+small-model job; paying for a large one here is waste.
 
 **Error handling.** Fetch failures, JavaScript-only pages (under 200 characters of text),
 malformed JSON and API errors all degrade to the keyword baseline with the reason shown

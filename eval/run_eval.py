@@ -85,9 +85,9 @@ def main():
     ap.add_argument("--truth", default=os.path.join(os.path.dirname(__file__), "ground_truth.csv"))
     args = ap.parse_args()
 
-    key = os.environ.get("ANTHROPIC_API_KEY", "")
+    key = os.environ.get("GEMINI_API_KEY", "")
     if args.mode == "llm" and not key:
-        sys.exit("Set ANTHROPIC_API_KEY, or run with --mode baseline.")
+        sys.exit("Set GEMINI_API_KEY, or run with --mode baseline.")
 
     with open(args.truth, newline="", encoding="utf-8") as fh:
         truth_rows = list(csv.DictReader(fh))

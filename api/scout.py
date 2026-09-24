@@ -116,7 +116,7 @@ class handler(BaseHTTPRequestHandler):
             self._send_json(400, {"ok": False, "error": "Use a valid public http(s) URL."})
             return
 
-        key = os.environ.get("ANTHROPIC_API_KEY", "")
+        key = os.environ.get("GEMINI_API_KEY", "")
         degraded_reason = ""
         if mode == "llm" and not key:
             mode = "baseline"
@@ -143,4 +143,3 @@ class handler(BaseHTTPRequestHandler):
         if degraded_reason:
             data["error"] = degraded_reason
         self._send_json(200 if result.ok else 422, data)
-

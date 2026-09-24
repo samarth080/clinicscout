@@ -22,9 +22,9 @@ LABELS = {
 
 
 def api_key() -> str:
-    env_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    env_key = os.environ.get("GEMINI_API_KEY", "")
     try:
-        return st.secrets.get("ANTHROPIC_API_KEY", env_key)
+        return st.secrets.get("GEMINI_API_KEY", env_key)
     except StreamlitSecretNotFoundError:
         # A clean local checkout has no secrets file. That is a supported state:
         # the UI should load and let the user run the keyword baseline.
@@ -54,7 +54,7 @@ with st.sidebar:
         "- touch patient data of any kind"
     )
     if not api_key():
-        st.warning("No API key found. Set ANTHROPIC_API_KEY in Streamlit secrets, or use "
+        st.warning("No API key found. Set GEMINI_API_KEY in Streamlit secrets, or use "
                    "the keyword baseline.")
 
 tab1, tab2 = st.tabs(["Single page", "Batch"])

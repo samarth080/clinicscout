@@ -1,6 +1,6 @@
 # Part 5 — ClinicScout
 
-**Link:** [deployed app URL]  ·  **Code:** [repo URL]  ·  **Screen recording:** [link]
+**Link:** https://clinicscout.vercel.app  ·  **Code:** https://github.com/samarth080/clinicscout  ·  **Screen recording:** Not included
 
 **What it does.** Reads a hospital web page and returns seven structured fields — joint
 replacement offered, knee and hip replacement mentioned, rehab capability, orthopaedic

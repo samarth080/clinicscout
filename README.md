@@ -2,6 +2,10 @@
 
 Turns a hospital web page into the structured fields needed to judge it as a pilot site.
 
+**Live app:** https://clinicscout.vercel.app
+
+**Source:** https://github.com/samarth080/clinicscout
+
 Built after doing the research by hand. Fifteen institutions were classified manually for
 Part 2, and the same three questions came up every time: does this hospital actually do
 joint replacement, who runs it, and does rehab sit in the same building. Roughly six

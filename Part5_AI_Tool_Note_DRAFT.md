@@ -29,8 +29,10 @@ knees (excluded by my TKR definition), and a "15,000+ joint replacements" cumula
 marketing claim. I scored the model against a naive keyword matcher to check the model was
 earning its place.
 
-**Results.** Error rate [X]% across [N] field-level judgements ([Y] hallucinations, [Z]
-over-abstentions). The keyword baseline scored [B]%, failing mainly by [how]. Per-field
+**Results.** Error rate 65% across 100 field-level judgements (4 hallucinations, 6
+over-abstentions). The keyword baseline was 34% correct (66% error), failing mainly
+because 55 of 100 judgements came from official pages that were missing or unreadable,
+and because the matcher cannot identify named clinical leads. Per-field
 numbers and every failure are in `eval/summary_llm.md`; the run is reproducible with
 `python eval/run_eval.py`.
 

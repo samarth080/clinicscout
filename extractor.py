@@ -25,7 +25,7 @@ import requests
 from bs4 import BeautifulSoup
 
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-MODEL = os.environ.get("CLINICSCOUT_MODEL", "gemini-2.5-flash-lite")
+MODEL = os.environ.get("CLINICSCOUT_GEMINI_MODEL", "gemini-3.5-flash-lite")
 MAX_PAGE_CHARS = 18000
 
 # Long terms are safe as substrings. The abbreviations are NOT: "tha" is inside

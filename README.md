@@ -85,7 +85,7 @@ best-effort limit of 20 requests per IP per hour. The counter is in memory and t
 per warm Vercel instance; a globally strict counter would require shared storage, which
 is deliberately out of scope for this small no-database tool.
 
-**Model.** Defaults to Gemini 2.5 Flash-Lite (`CLINICSCOUT_MODEL` to override), which has
+**Model.** Defaults to Gemini 3.5 Flash-Lite (`CLINICSCOUT_GEMINI_MODEL` to override), which has
 a documented free API tier and structured JSON output. Free-tier requests may be used
 to improve Google's products, so the existing public-institutional-pages-only rule is
 important: no patient data is accepted or needed. Extraction with a strict schema is a
@@ -135,6 +135,16 @@ The current baseline run scored all 20 institutions and 100 field-level judgemen
 34% correct and 66% error, comprising 3% hallucinations, 8% over-abstentions and 55%
 unreadable/missing-page errors. Eleven of the 20 official pages could not be read. This
 is intentionally harsh: infrastructure failure is still failure for the user.
+
+The verified Gemini arm scored 35% correct and 65% error on the same 100 judgements:
+4% hallucinations, 6% over-abstentions and the same 55% unreadable/missing-page errors.
+It beat the keyword arm by one judgement, mostly by extracting named leads, but that
+small gain is not a strong result. Official-site availability dominates both arms.
+
+One scored name error is worth reading carefully: the Paras Panchkula page names
+Dr. Jagandeep Virk as Associate Director and Dr. Ravi Kumar Gupta as Chairman and HOD.
+The locked label expects Dr. Virk; the model selected the more senior title and therefore
+scores as a hallucination. I did not alter this unflagged label after seeing the output.
 
 ---
 

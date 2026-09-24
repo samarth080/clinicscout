@@ -1,0 +1,7 @@
+.venv
+.git
+_handoff
+_unpacked
+reference
+eval/pages
+__pycache__

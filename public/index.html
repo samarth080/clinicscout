@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-backed hospital page extraction for pilot-site research.">
+  <title>ClinicScout</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Public-page research tool</p>
+      <h1>ClinicScout</h1>
+      <p class="lede">Seven structured answers from one hospital page. Every claim needs a quote from that page; otherwise it stays Unknown.</p>
+    </header>
+
+    <section class="card input-card" aria-labelledby="run-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">01 / Source</p>
+          <h2 id="run-title">Read a hospital page</h2>
+        </div>
+        <span class="privacy">Public institutional pages only · no patient data</span>
+      </div>
+
+      <label for="url">Hospital page URL</label>
+      <input id="url" type="url" placeholder="https://hospital.example/orthopaedics" autocomplete="url">
+
+      <div class="or"><span>or</span></div>
+
+      <label for="text">Paste page text <span>(useful when a site blocks fetching)</span></label>
+      <textarea id="text" rows="6" maxlength="50000" placeholder="Paste public hospital-page copy here…"></textarea>
+
+      <fieldset>
+        <legend>Extraction mode</legend>
+        <label class="mode"><input type="radio" name="mode" value="llm" checked> Model + verification</label>
+        <label class="mode"><input type="radio" name="mode" value="baseline"> Keyword baseline</label>
+      </fieldset>
+
+      <button id="run" type="button">Run ClinicScout</button>
+      <p class="fine-print">The server sends at most 18,000 page characters to the model. The API key never reaches this browser.</p>
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-title" hidden>
+      <div class="results-head">
+        <div>
+          <p class="step">02 / Evidence</p>
+          <h2 id="results-title">What the page actually says</h2>
+        </div>
+        <div id="stats" class="stats"></div>
+      </div>
+      <div id="fields" class="field-grid"></div>
+      <div class="result-actions">
+        <button id="download" class="secondary" type="button">Download JSON</button>
+      </div>
+    </section>
+
+    <section class="guardrails" aria-labelledby="guardrails-title">
+      <p class="step">Guardrails</p>
+      <h2 id="guardrails-title">Unknown beats a guess.</h2>
+      <div class="guardrail-grid">
+        <p><strong>Quote checked.</strong> Unsupported model evidence is discarded.</p>
+        <p><strong>Term gated.</strong> Knee or hip claims require replacement or arthroplasty language in the quote.</p>
+        <p><strong>Failure shown.</strong> Fetch and model failures are reported or fall back to the baseline.</p>
+      </div>
+    </section>
+  </main>
+  <script src="/public/app.js" defer></script>
+</body>
+</html>

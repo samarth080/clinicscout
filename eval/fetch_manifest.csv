@@ -1,0 +1,21 @@
+inst_id,institution,url,status,page_chars,error
+INST-001,PGIMER,https://pgimer.edu.in/PGIMER_PORTAL/PGIMERPORTAL/Department/Global/JSP/empview.jsp?id=583,fetch_failed,,"HTTPSConnectionPool(host='pgimer.edu.in', port=443): Max retries exceeded with url: /PGIMER_PORTAL/PGIMERPORTAL/Department/Global/JSP/empview.jsp?id=583 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)')))"
+INST-002,GMCH-32,https://gmch.gov.in/category-iv-1,ok,7728,
+INST-003,Fortis Hospital Mohali,https://www.fortishealthcare.com/lp/mohali/orthopedics,ok,23320,
+INST-004,Shalby Hospital Mohali,https://www.shalby.org/specialities/bone-and-joint/knee-joint-replacement/,fetch_failed,,403 Client Error: Forbidden for url: https://www.shalby.org/specialities/bone-and-joint/knee-joint-replacement/
+INST-005,Park Grecian Super Speciality Hospital Mohali,https://www.parkhospital.in/mohali/grecian-super-speciality-hospital-mohali,ok,27582,
+INST-006,Livasa Hospital Mohali,https://www.livasahospitals.com/doctor/dr-manuj-wadhwa,ok,10224,
+INST-007,Max Super Speciality Hospital Mohali,https://www.maxhealthcare.in/doctor/dr-ramesh-kumar-sen,fetch_failed,,403 Client Error: Forbidden for url: https://www.maxhealthcare.in/doctor/dr-ramesh-kumar-sen
+INST-008,CHPL Super Speciality Hospital,https://www.mychpl.com/orthopaedics/,too_short,73,page text too short — likely JavaScript-rendered or blocked
+INST-009,Alchemist Hospital Panchkula,https://alchemisthospitals.com/panchkula/doctor-near-me/joint-replacement-surgery/,ok,4808,
+INST-010,Ojas Hospital Panchkula,https://ojashospital.co.in/panchkula/doctor-near-me/dr-manuj-wadhwa-robotic-joint-replacement/,ok,4117,
+INST-011,Paras Health Panchkula,https://www.parashospitals.com/panchkula/procedure/joint-replacement-surgeries,ok,13354,
+INST-012,Park Hospital Panchkula,https://www.parkhospital.in/panchkula/park-hospital-panchkula,ok,22650,
+INST-013,Mukat Hospital Chandigarh,https://www.mukathospital.com/orthopaedics-joints-replacement-and-traumatology/,fetch_failed,,"('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+INST-014,Healing Hospital Chandigarh,https://healinghospital.co.in/specialities/orthopaedics/,too_short,73,page text too short — likely JavaScript-rendered or blocked
+INST-015,Command Hospital Western Command Chandimandir,,missing_url,,no official page found
+INST-016,GMSH-16,,missing_url,,no official page found
+INST-017,Civil Hospital Mohali,,missing_url,,no official page found
+INST-018,Civil Hospital Sector 6 Panchkula,,missing_url,,no official page found
+INST-019,Physio Synapse,https://physiosynapse.com/knee-replacement-physiotherapy/,fetch_failed,,"('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+INST-020,Independent home-visit physiotherapy provider,https://www.healmotion.in/,ok,3514,

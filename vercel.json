@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/", "destination": "/public/index.html" }
+  ],
+  "functions": {
+    "api/scout.py": {
+      "maxDuration": 50,
+      "includeFiles": "extractor.py",
+      "excludeFiles": "{.venv/**,_handoff/**,_unpacked/**,eval/**,reference/**}"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.venv/
+.vercel/
+__pycache__/
+*.py[cod]
+_handoff/
+_unpacked/
+reference/attached_prompt.md

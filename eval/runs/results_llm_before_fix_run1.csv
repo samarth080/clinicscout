@@ -1,0 +1,101 @@
+inst_id,institution,field,ground_truth,tool_output,verdict,failure_type,flag,evidence
+INST-001,PGIMER,joint_replacement_offered,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-001,PGIMER,knee_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-001,PGIMER,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-001,PGIMER,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-001,PGIMER,ortho_lead,Prof. Aditya K. Aggarwal,Unknown,unreadable,page_unreadable,no cached page,
+INST-002,GMCH-32,joint_replacement_offered,Yes,Yes,correct,,,Total hip replacement Total knee replacement Total shoulder/elbow replacement
+INST-002,GMCH-32,knee_replacement_mentioned,Yes,Yes,correct,,,Total knee replacement
+INST-002,GMCH-32,hip_replacement_mentioned,Yes,Yes,correct,,,Total hip replacement
+INST-002,GMCH-32,rehab_capability,Unknown,Unknown,correct_unknown,,,
+INST-002,GMCH-32,ortho_lead,Unknown,Unknown,correct_unknown,,,
+INST-003,Fortis Hospital Mohali,joint_replacement_offered,Yes,Yes,correct,,,does the highest number of joint replacements in the region.
+INST-003,Fortis Hospital Mohali,knee_replacement_mentioned,Yes,Yes,correct,,,The hospital is equipped to perform an array of surgeries including uni-compartmental knee replacement
+INST-003,Fortis Hospital Mohali,hip_replacement_mentioned,Yes,Yes,correct,,,surface replacement of hip
+INST-003,Fortis Hospital Mohali,rehab_capability,Unknown,Yes,hallucination,asserted_over_unknown,,"Our team of anesthesiologists, rheumatologists and rehabilitation experts are here to make your recovery smooth and rapid."
+INST-003,Fortis Hospital Mohali,ortho_lead,Dr. Mandeep Singh Dhillon,Dr. Mandeep Singh Dhillon,correct,,,Dr. Mandeep Singh Dhillon Director Orthopaedics Orthopaedics
+INST-004,Shalby Hospital Mohali,joint_replacement_offered,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-004,Shalby Hospital Mohali,knee_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-004,Shalby Hospital Mohali,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-004,Shalby Hospital Mohali,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-004,Shalby Hospital Mohali,ortho_lead,Dr. Gurdarshan Singh Natt,Unknown,unreadable,page_unreadable,no cached page,
+INST-005,Park Grecian Super Speciality Hospital Mohali,joint_replacement_offered,Yes,Yes,correct,,,"Ortho, Joint Replacement & Sports Medicine"
+INST-005,Park Grecian Super Speciality Hospital Mohali,knee_replacement_mentioned,Yes,Unknown,over_abstained,missed,,
+INST-005,Park Grecian Super Speciality Hospital Mohali,hip_replacement_mentioned,Yes,Unknown,over_abstained,missed,,
+INST-005,Park Grecian Super Speciality Hospital Mohali,rehab_capability,Yes,Unknown,over_abstained,missed,,
+INST-005,Park Grecian Super Speciality Hospital Mohali,ortho_lead,Dr. Bhanu Pratap Singh Saluja,Dr. Bhanu Pratap Singh Saluja,correct,,,"Dr. Bhanu Pratap Singh Saluja Director Ortho, Joint Replacement & Sports Medicine Park Grecian Super Speciality Hospital, Mohali"
+INST-006,Livasa Hospital Mohali,joint_replacement_offered,Yes,Yes,correct,,,Joint Replacement Surgery
+INST-006,Livasa Hospital Mohali,knee_replacement_mentioned,Yes,Yes,correct,,,spearheading the introduction of the high-flexion knee and hip replacements
+INST-006,Livasa Hospital Mohali,hip_replacement_mentioned,Yes,Yes,correct,,,spearheading the introduction of the high-flexion knee and hip replacements
+INST-006,Livasa Hospital Mohali,rehab_capability,Unknown,Yes,hallucination,asserted_over_unknown,,Physical Medicine and Rehabilitation
+INST-006,Livasa Hospital Mohali,ortho_lead,Dr. Manuj Wadhwa,Dr. Manuj Wadhwa,correct,,,Dr. Manuj Wadhwa - Orthopedic Surgeon in Mohali
+INST-007,Max Super Speciality Hospital Mohali,joint_replacement_offered,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-007,Max Super Speciality Hospital Mohali,knee_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-007,Max Super Speciality Hospital Mohali,hip_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-007,Max Super Speciality Hospital Mohali,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-007,Max Super Speciality Hospital Mohali,ortho_lead,Dr. Ramesh Kumar Sen,Unknown,unreadable,page_unreadable,no cached page,
+INST-008,CHPL Super Speciality Hospital,joint_replacement_offered,Yes,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-008,CHPL Super Speciality Hospital,knee_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-008,CHPL Super Speciality Hospital,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-008,CHPL Super Speciality Hospital,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-008,CHPL Super Speciality Hospital,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-009,Alchemist Hospital Panchkula,joint_replacement_offered,Yes,Yes,correct,,,1. Total Joint Replacement Surgery
+INST-009,Alchemist Hospital Panchkula,knee_replacement_mentioned,Yes,Yes,correct,,,(a) Total Knee Replacement / Knee Resurfacing
+INST-009,Alchemist Hospital Panchkula,hip_replacement_mentioned,Yes,Yes,correct,,,(c) Total Hip Replacement
+INST-009,Alchemist Hospital Panchkula,rehab_capability,Yes,Yes,correct,,,"Among other things, our state-of-the-art facility includes a laboratory, MRI scan, CT Scan & dedicated Physiotherapy unit."
+INST-009,Alchemist Hospital Panchkula,ortho_lead,Dr. Dalvir Singh Chauhan,Dr. Dalvir Singh Chauhan,correct,,,"Dr. Dalvir Singh Chauhan Associate Director , Orthopedics & Joint Replacement"
+INST-010,Ojas Hospital Panchkula,joint_replacement_offered,Yes,Yes,correct,,,"We perform joint replacement, knee replacement, foot and ankle surgeries, pediatric surgery, spine disc surgeries and more."
+INST-010,Ojas Hospital Panchkula,knee_replacement_mentioned,Yes,Yes,correct,,,"We perform joint replacement, knee replacement, foot and ankle surgeries, pediatric surgery, spine disc surgeries and more."
+INST-010,Ojas Hospital Panchkula,hip_replacement_mentioned,Yes,Unknown,over_abstained,missed,,
+INST-010,Ojas Hospital Panchkula,rehab_capability,Yes,Unknown,over_abstained,missed,no_rehab_term_in_evidence,Fully equipped physio center with trained staff of orthopedic and joint replacement surgeries.
+INST-010,Ojas Hospital Panchkula,ortho_lead,Dr. Manuj Wadhwa,Dr. Manuj Wadhwa,correct,,,"Dr. Manuj Wadhwa Chairman & Executive Director, Orthopaedics & Joint Replacement"
+INST-011,Paras Health Panchkula,joint_replacement_offered,Yes,Yes,correct,,,We specialize in all major joint replacement surgeries .
+INST-011,Paras Health Panchkula,knee_replacement_mentioned,Yes,Yes,correct,,,Total Knee Replacement (TKR): A procedure to replace the entire knee joint.
+INST-011,Paras Health Panchkula,hip_replacement_mentioned,Yes,Yes,correct,,,"Total Hip Replacement (THR): In a total hip replacement, the ball and socket of the hip joint are both replaced with prosthetic components."
+INST-011,Paras Health Panchkula,rehab_capability,Yes,Yes,correct,,,"Our integrated physiotherapy and pain management protocols ensure you're back on your feet quicker, with improved joint function and mobility."
+INST-011,Paras Health Panchkula,ortho_lead,Dr. Jagandeep Virk,Dr. Ravi Kumar Gupta,hallucination,wrong_name,,"Dr. Ravi Kumar Gupta Chairman And HOD Paras Health, Panchkula"
+INST-012,Park Hospital Panchkula,joint_replacement_offered,Yes,Yes,correct,,,"Ortho, Joint Replacement & Sports Medicine"
+INST-012,Park Hospital Panchkula,knee_replacement_mentioned,Yes,Yes,correct,,,Robotic Knee Replacement Success Story
+INST-012,Park Hospital Panchkula,hip_replacement_mentioned,Yes,Unknown,over_abstained,missed,,
+INST-012,Park Hospital Panchkula,rehab_capability,Yes,Yes,correct,,,"Advanced robotic technology, expert orthopedic care, and personalized rehabilitation helped reduce pain, improve movement, and enhance overall quality of life."
+INST-012,Park Hospital Panchkula,ortho_lead,Dr. Anand Jindal,Dr. Anand Jindal,correct,,,"Dr. Anand Jindal Director Ortho, Joint Replacement & Sports Medicine Park Hospital, Panchkula"
+INST-013,Mukat Hospital Chandigarh,joint_replacement_offered,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-013,Mukat Hospital Chandigarh,knee_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-013,Mukat Hospital Chandigarh,hip_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-013,Mukat Hospital Chandigarh,rehab_capability,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-013,Mukat Hospital Chandigarh,ortho_lead,Dr. Sumu Chowdhury,Unknown,unreadable,page_unreadable,no cached page,
+INST-014,Healing Hospital Chandigarh,joint_replacement_offered,Yes,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-014,Healing Hospital Chandigarh,knee_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-014,Healing Hospital Chandigarh,hip_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-014,Healing Hospital Chandigarh,rehab_capability,Yes,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-014,Healing Hospital Chandigarh,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,page text too short — likely JavaScript-rendered or blocked,
+INST-015,Command Hospital Western Command Chandimandir,joint_replacement_offered,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-015,Command Hospital Western Command Chandimandir,knee_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-015,Command Hospital Western Command Chandimandir,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-015,Command Hospital Western Command Chandimandir,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-015,Command Hospital Western Command Chandimandir,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-016,GMSH-16,joint_replacement_offered,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-016,GMSH-16,knee_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-016,GMSH-16,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-016,GMSH-16,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-016,GMSH-16,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-017,Civil Hospital Mohali,joint_replacement_offered,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-017,Civil Hospital Mohali,knee_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-017,Civil Hospital Mohali,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-017,Civil Hospital Mohali,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-017,Civil Hospital Mohali,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-018,Civil Hospital Sector 6 Panchkula,joint_replacement_offered,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-018,Civil Hospital Sector 6 Panchkula,knee_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-018,Civil Hospital Sector 6 Panchkula,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-018,Civil Hospital Sector 6 Panchkula,rehab_capability,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-018,Civil Hospital Sector 6 Panchkula,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-019,Physio Synapse,joint_replacement_offered,No,Unknown,unreadable,page_unreadable,no cached page,
+INST-019,Physio Synapse,knee_replacement_mentioned,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-019,Physio Synapse,hip_replacement_mentioned,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-019,Physio Synapse,rehab_capability,Yes,Unknown,unreadable,page_unreadable,no cached page,
+INST-019,Physio Synapse,ortho_lead,Unknown,Unknown,unreadable,page_unreadable,no cached page,
+INST-020,Independent home-visit physiotherapy provider,joint_replacement_offered,No,No,correct_unknown,,,"Professional, personalised physiotherapy at your doorstep — focused on pain relief, mobility and meaningful recovery."
+INST-020,Independent home-visit physiotherapy provider,knee_replacement_mentioned,Unknown,No,correct_unknown,,,"Professional, personalised physiotherapy at your doorstep — focused on pain relief, mobility and meaningful recovery."
+INST-020,Independent home-visit physiotherapy provider,hip_replacement_mentioned,Unknown,No,correct_unknown,,,"Professional, personalised physiotherapy at your doorstep — focused on pain relief, mobility and meaningful recovery."
+INST-020,Independent home-visit physiotherapy provider,rehab_capability,Yes,Unknown,over_abstained,missed,no_rehab_term_in_evidence,Structured recovery plans to help you regain movement and confidence.
+INST-020,Independent home-visit physiotherapy provider,ortho_lead,Unknown,Unknown,correct_unknown,,,

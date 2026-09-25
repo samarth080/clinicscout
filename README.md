@@ -150,9 +150,9 @@ scores as a hallucination. I did not alter this unflagged label after seeing the
 
 ## A failure the benchmark caught, and the fix
 
-**Before.** Running the baseline arm over the cached pages, Government Multi Specialty
-Hospital Sector 16 came back as a joint-replacement provider. Its page has no arthroplasty
-service at all — it lists a knee *pain* clinic.
+**Before.** Testing the harness on a hand-written negative fixture — a general hospital
+listing an ophthalmology department and a knee pain clinic, with no arthroplasty service —
+the keyword gate marked it a joint-replacement provider. The fixture is not a scraped page.
 
 **Why.** The replacement-term list was matched as plain substrings, and it included the
 abbreviations `tka`, `thr` and `tha`. "Tha" sits inside **ophthalmology**. The page
@@ -195,6 +195,12 @@ did not get worse; the denominator became honest.
 
 ## Known limitations
 
+- Results vary by about one judgement between runs even at temperature 0 (35–36 of 100
+  correct).
+- A correct Ojas rehab answer was rejected because "physio center" is not in the rehab
+  word list.
+- Long pages are cut at 18,000 characters, which likely caused the Park Grecian knee/hip
+  misses.
 - **One page, not one hospital.** Rehab often lives on a different URL from orthopaedics,
   so a hospital can score Unknown on rehab while having a physiotherapy department.
   Feed both pages, or accept the undercount.

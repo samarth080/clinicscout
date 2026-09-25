@@ -48,6 +48,21 @@ REHAB_TERMS = [
     "physiotherapy", "physiotherapist", "physical therapy", "rehabilitation",
     "rehab", "domiciliary", "home visit",
 ]
+CAPABILITY_FIELDS = (
+    "joint_replacement_offered",
+    "knee_replacement_mentioned",
+    "hip_replacement_mentioned",
+    "rehab_capability",
+)
+NON_PATIENT_CONTEXT_TERMS = [
+    "intern", "internship", "intership", "application form", "vacancy", "vacancies",
+    "career", "careers", "recruitment", "course", "admission", "admissions",
+    "fellowship", "training programme", "training program",
+]
+NON_PATIENT_CONTEXT_RE = re.compile(
+    r"\b(?:" + "|".join(re.escape(term) for term in NON_PATIENT_CONTEXT_TERMS) + r")\b",
+    re.I,
+)
 PHONE_CANDIDATE_RE = re.compile(r"(?<![\d])[+(]?\d[\d\s\-()]{8,18}\d(?![\d])")
 
 FIELDS = [
@@ -72,8 +87,12 @@ Rules, in order of importance:
 3. Knee or hip REPLACEMENT means arthroplasty. General orthopaedics, knee pain clinics,
    sports injury, arthroscopy and physiotherapy for knees are NOT knee replacement.
    Only answer Yes if the evidence quote itself says replacement or arthroplasty.
-4. Names must be people named on this page. Give the name exactly as printed.
-5. A volume signal is an explicit count of procedures or surgeries. A bed count, a
+4. For rehab capability and the other capability fields, evidence must describe a
+   service offered to patients. Careers, internships, vacancies, courses, training
+   programmes, admissions, application forms and fellowships are not evidence of a
+   patient service.
+5. Names must be people named on this page. Give the name exactly as printed.
+6. A volume signal is an explicit count of procedures or surgeries. A bed count, a
    patient-footfall number, a "years of experience" figure and a cumulative career
    total are NOT annual procedure volumes. If the page gives a cumulative or career
    figure, report it and say so in the evidence.
@@ -220,6 +239,10 @@ def verify(raw: dict, page: str) -> dict:
 
         if not quote_in_page(evidence, page):
             out[fname] = FieldResult("Unknown", evidence, False, "evidence_not_found")
+            continue
+
+        if fname in CAPABILITY_FIELDS and NON_PATIENT_CONTEXT_RE.search(evidence):
+            out[fname] = FieldResult("Unknown", evidence, False, "non_patient_context")
             continue
 
         gate = term_gate(fname, evidence)

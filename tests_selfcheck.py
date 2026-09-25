@@ -74,7 +74,24 @@ check("fabricated name rejected",
 check("unsupported volume quote rejected", f["volume_signal"].value == "Unknown")
 check("abstention preserved", f["physio_lead"].value == "Unknown")
 
-# 3. Failure handling
+# 3. Non-patient contexts must not count as clinical capability
+internship_quote = "Application Form for Six months Physiotherapy Intership with Orthopaedics Department"
+internship = E.verify({
+    "rehab_capability": {"value": "Yes", "evidence": internship_quote},
+}, internship_quote)
+check("internship form rejected as non-patient context",
+      internship["rehab_capability"].value == "Unknown"
+      and internship["rehab_capability"].flag == "non_patient_context",
+      internship["rehab_capability"].flag)
+
+service_quote = "post-operative rehabilitation after joint replacement"
+patient_service = E.verify({
+    "rehab_capability": {"value": "Yes", "evidence": service_quote},
+}, service_quote)
+check("genuine patient rehabilitation remains accepted",
+      patient_service["rehab_capability"].value == "Yes")
+
+# 4. Failure handling
 def boom(*a, **k): raise RuntimeError("429 rate limited")
 E.requests.post = boom
 res2 = E.scout("mock://page", api_key="test-key", raw_text=PAGE_HTML)
@@ -84,12 +101,12 @@ check("API failure degrades to baseline, not a crash",
 res3 = E.scout("mock://tiny", api_key="test-key", raw_text="too short")
 check("thin/JS page reported, not guessed", not res3.ok and "too short" in res3.error)
 
-# 4. The bug the benchmark caught
+# 5. The bug the benchmark caught
 check("ophthalmology no longer reads as arthroplasty",
       not E.has_replacement_term("Department of ophthalmology and ENT"))
 check("real abbreviations still match", E.has_replacement_term("we perform TKA and THA"))
 
-# 5. Evaluation failures must remain in the denominator
+# 6. Evaluation failures must remain in the denominator
 unreadable = unreadable_rows({"inst_id": "X", "institution": "Blocked"}, "403 blocked")
 check("unreadable page becomes five scored errors",
       len(unreadable) == 5 and all(r["verdict"] == "unreadable" for r in unreadable))
